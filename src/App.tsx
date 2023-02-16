@@ -1,16 +1,14 @@
-import './App.css';
+import "./App.css";
 
-import CounterAppOne from './components/Pricing';
+import CounterAppOne from "./components/Pricing";
 
 //@ts-ignore
 
 function App() {
   return (
-    <div className="App">
-      <h1>Pricing</h1>
+    <div className="flex flex-col bg-gray-900 text-white items-center justify-center h-screen gap-5">
+      <div className="text-4xl">Pricing Module</div>
       <CounterAppOne />
-
-      <h1 className='text-green-700'>I am remote</h1>
     </div>
   );
 }
