@@ -6,8 +6,9 @@ const deps = require('./package.json').dependencies;
 module.exports = {
   entry: './src/index.ts',
   mode: 'development',
+  
   devServer: {
-    port: 3001,
+    port: 3002,
     open: true,
   },
   resolve: {
@@ -28,11 +29,15 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'remote',
+      name: 'pricing',
       filename: 'remoteEntry.js',
+      remotes:{
+        container: "container@http://localhost:3000/remoteEntry.js",
+
+      },
       exposes: {
         // expose each component
-        './CounterOne': './src/components/CounterOne',
+        './Pricing': './src/components/Pricing',
       },
       shared: {
         ...deps,
